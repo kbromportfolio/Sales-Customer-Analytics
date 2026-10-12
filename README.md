@@ -119,3 +119,17 @@ This stage applies the verified date-format correction to the two date columns, 
 **Deliverable:** [Cleaned dataset](Data/Cleaned/train_cleaned.csv).
 
 **Status:** Completed
+
+### PM-05 — Data Validation
+
+This stage verifies date formats and order, required identifiers, sales values, and record counts in the cleaned dataset against the preserved raw source.
+
+**Validation notes:**
+
+* 9,800 records and 18 fields match the raw source.
+* All cleaned date values parse successfully as ISO `YYYY-MM-DD`, and no ship date precedes the order date.
+* All `Row ID`, `Order ID`, `Customer ID`, and `Product ID` values are populated, and all `Row ID` values are unique.
+* All sales values are numeric and non-negative, ranging from 0.444 to 22,638.48.
+* The 11 missing `Postal Code` values remain blank because they were not confirmed in the source data.
+
+**Status:** Completed
