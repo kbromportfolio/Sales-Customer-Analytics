@@ -141,3 +141,27 @@ This stage creates the required analytical calculations that support the project
 **Deliverable:** [Excel calculations workbook](excel/sales_customer_analytics_calculations.xlsx) with a worksheet containing the required formula logic for time-based and sales-based analysis.
 
 **Status:** Completed
+
+### PM-07 — Sales and Customer Analysis
+
+This stage analyses sales by time, product, geography, segment, and customer using the validated and cleaned dataset together with the calculation sheet. The focus is to identify revenue patterns, category performance, regional differences, and the highest-value customer groups.
+
+**Analysis focus:**
+
+* Sales by year and month
+* Sales by category and sub-category
+* Sales by region and state
+* Sales by customer segment
+* Top contributing customers and order behaviour
+
+**Summary findings:**
+
+* Highest annual sales occur in 2018 at 722,052.02.
+* Technology is the highest revenue category at 827,455.87.
+* West is the highest revenue region at 710,219.68, followed by East.
+* Consumer is the largest segment at 1,148,060.53 in total sales.
+* Top customer by sales is SM-20320 at 25,043.05.
+
+**Deliverable:** Analysis worksheets and summary tables in the Excel workbook for sales and customer review.
+
+**Status:** Completed
