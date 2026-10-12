@@ -78,7 +78,7 @@ Sales-Customer-Analytics/
 │   └── (visual outputs to be created)
 │
 ├── excel/
-│   └── (Excel workbook files to be created)
+│   └── sales_customer_analytics_calculations.xlsx
 │
 ├── README.md
 └── .git
@@ -131,5 +131,13 @@ This stage verifies date formats and order, required identifiers, sales values, 
 * All `Row ID`, `Order ID`, `Customer ID`, and `Product ID` values are populated, and all `Row ID` values are unique.
 * All sales values are numeric and non-negative, ranging from 0.444 to 22,638.48.
 * The 11 missing `Postal Code` values remain blank because they were not confirmed in the source data.
+
+**Status:** Completed
+
+### PM-06 — Formula Development
+
+This stage creates the required analytical calculations that support the project questions and downstream reporting. It adds derived fields such as year and month, shipping duration, and other business measures needed for the analysis workbook using the cleaned dataset as the source.
+
+**Deliverable:** [Excel calculations workbook](excel/sales_customer_analytics_calculations.xlsx) with a worksheet containing the required formula logic for time-based and sales-based analysis.
 
 **Status:** Completed
