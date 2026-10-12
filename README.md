@@ -36,11 +36,17 @@ The project uses the dataset in `Data/Raw/train.csv`.
 
 ### Dataset Characteristics
 
-* Retail sales transaction records
-* Customer, product, and geographic fields included
-* Order and ship dates available for time-based analysis
-* Sales values included for revenue analysis
-* Suitable for segment, category, geography, and product review
+* **9,800 transaction records**
+* **18 fields**
+* **4,922 orders** from **793 customers**
+* **1,861 products**
+* **3 customer segments**
+* **3 product categories** and **17 sub-categories**
+* **4 regions** and **49 states**
+* **4 ship modes**
+* **Country:** United States
+* **Order date range:** 2015-01-03 to 2018-12-30
+* **Ship date range:** 2015-01-07 to 2019-01-05
 
 ### Important Data Notes
 
@@ -57,24 +63,25 @@ Sales-Customer-Analytics/
 │   ├── Raw/
 │   │   └── train.csv
 │   └── Cleaned/
-│       └── cleaned_dataset.csv
+│       └── train_cleaned.csv
 │
 ├── docs/
+│   ├── PERSONAL PROJECT PROPOSAL.odt
 │   ├── PERSONAL-PROJECT-PROPOSAL.md
-│   └── PROJECT MANAGEMENT TRACKER.odt
+│   ├── PROJECT MANAGEMENT TRACKER.odt
+│   └── ~$OJECT MANAGEMENT TRACKER.odt
 │
 ├── reports/
-│   └── analysis_outputs/
+│   └── (analysis outputs to be created)
 │
 ├── Images/
-│   └── dashboard_visuals/
+│   └── (visual outputs to be created)
 │
 ├── excel/
-│   └── analysis_workbook.xlsx
+│   └── (Excel workbook files to be created)
 │
 ├── README.md
-├── .gitignore
-└── LICENSE
+└── .git
 ```
 
 ## Project Methodology
@@ -83,15 +90,32 @@ The project follows a structured workflow from planning through final review and
 
 ### PM-01 — Project Planning
 
-This stage establishes the project purpose, goals, and scope. The focus is to define the business problem, identify the analytical questions to answer, and map out the project workflow before any data work begins.
+This stage defines the project aim, objectives, scope, and analytical approach. It identifies the business problem and questions to answer, and sets out the project workflow before data work begins.
 
-The project plan includes the overall aim, key objectives, dataset context, methodological approach, and the expected outputs. The work is structured to ensure that each analysis stage builds logically on the previous one and that the final deliverable remains aligned with the project purpose.
+**Deliverable:** Approved project proposal and project plan, documented in [PERSONAL-PROJECT-PROPOSAL.md](docs/PERSONAL-PROJECT-PROPOSAL.md).
+
+**Status:** Completed
 
 ### PM-02 — Dataset Preparation
 
-This stage focuses on confirming the source data, reviewing the available fields, checking date formatting, and confirming the licensing or usage conditions associated with the dataset. The purpose is to ensure that the project starts from a reliable and properly understood source before any transformation or analysis is performed.
+This stage confirms the dataset source, reviews its fields and date formats, checks the applicable licence or usage conditions, and preserves the original raw data without modification.
 
-The raw dataset is preserved without modification so that a traceable original record remains available throughout the project. This allows for validation, auditability, and comparison against any cleaned or transformed files created later in the workflow.
+**Deliverable:** Source record and preserved [raw dataset](Data/Raw/train.csv).
 
+**Status:** Completed
 
+### PM-03 — Data Profiling
 
+This stage inspects the dataset's columns, data types, missing values, duplicates, value ranges, and key identifiers to identify quality issues that may affect the analysis.
+
+**Deliverable:** Data profiling report.
+
+**Status:** Completed
+
+### PM-04 — Data Cleaning
+
+This stage applies the verified date-format correction to the two date columns, converting them to ISO `YYYY-MM-DD` format. No exact duplicate rows were found, and no records were removed. The 11 missing `Postal Code` values are retained because their values cannot be confirmed from the source data.
+
+**Deliverable:** [Cleaned dataset](Data/Cleaned/train_cleaned.csv).
+
+**Status:** Completed
