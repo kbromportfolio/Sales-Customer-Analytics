@@ -195,3 +195,17 @@ These are native Excel PivotTables sharing a pivot cache sourced from the 9,800 
 **Deliverable:** [Excel workbook](excel/sales_customer_analytics_calculations.xlsx) with the source table and six native PivotTable worksheets.
 
 **Status:** Completed
+
+### PM-09 — KPI Development
+
+This stage calculates supported sales, order, customer, and shipping KPIs and validates them against the PM-07 analysis and source data.
+
+**KPI summary worksheet:** `KPI_Summary` includes total sales, distinct orders, average order value, transaction count, sales per transaction, distinct customers, period sales per customer, repeat customers and repeat-customer rate, average shipping days, 2018 sales growth versus 2017, top-ten customer sales share, and Consumer segment sales share. Each KPI includes its definition and source.
+
+**Validation:** Workbook formula checks pass for total sales (2,261,536.78), transaction rows (9,800), distinct orders (4,922), distinct customers (793), and 2018 sales growth (20.3% versus 2017). Other calculated results include an average order value of 459.48, 780 repeat customers (98.4%), average shipping duration of 3.96 days, and a top-ten customer sales share of 6.8%.
+
+Average sales per customer describes this dataset period and is not customer lifetime value. Repeat-customer rate is based on customers with at least two distinct orders and is not a retention or churn measure. Shipping days are averaged across transaction rows. Profit, margin, discount, and unit KPIs are excluded because the source does not contain the necessary fields. Customer- and time-based formulas use the PM-07 summary worksheets; refresh those summaries along with the PivotTables after replacing source data.
+
+**Deliverable:** [Excel workbook](excel/sales_customer_analytics_calculations.xlsx) with the KPI summary and PM-07 benchmark checks.
+
+**Status:** Completed
