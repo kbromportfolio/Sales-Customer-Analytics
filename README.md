@@ -146,22 +146,52 @@ This stage creates the required analytical calculations that support the project
 
 This stage analyses sales by time, product, geography, segment, and customer using the validated and cleaned dataset together with the calculation sheet. The focus is to identify revenue patterns, category performance, regional differences, and the highest-value customer groups.
 
-**Analysis focus:**
+**Analysis worksheets in the Excel workbook:**
 
-* Sales by year and month
-* Sales by category and sub-category
-* Sales by region and state
-* Sales by customer segment
-* Top contributing customers and order behaviour
+* `Analysis_Summary`: headline KPIs and key findings.
+* `Analysis_Time`: annual totals, year-over-year change, monthly sales by year, and month-of-year comparisons.
+* `Analysis_Product`: category and sub-category sales plus the top 20 products.
+* `Analysis_Geography`: regional and state sales.
+* `Analysis_Segment`: sales by customer segment.
+* `Analysis_Customer`: the top 20 and full customer ranking, with sales, sales share, transaction count, and distinct order count.
+* `SalesData`: the 9,800 cleaned transaction rows and derived year, month, and shipping-day fields.
 
 **Summary findings:**
 
+* Total sales are 2,261,536.78 across 9,800 transaction rows, 4,922 distinct orders, and 793 customers.
 * Highest annual sales occur in 2018 at 722,052.02.
 * Technology is the highest revenue category at 827,455.87.
-* West is the highest revenue region at 710,219.68, followed by East.
+* West is the highest revenue region at 710,219.68.
 * Consumer is the largest segment at 1,148,060.53 in total sales.
-* Top customer by sales is SM-20320 at 25,043.05.
+* Top customer by sales is Sean Miller (SM-20320) at 25,043.05.
 
-**Deliverable:** Analysis worksheets and summary tables in the Excel workbook for sales and customer review.
+The cleaned CSV stores dates as `DD/MM/YYYY`; the workbook parses them as day-first dates and stores them as Excel dates before grouping by year and month. Transaction counts are source-row counts, not order counts. The source does not contain profit, discount, or quantity fields.
+
+**Deliverable:** [Excel workbook](excel/sales_customer_analytics_calculations.xlsx) with the calculations, source data, analysis worksheets, and summary tables for sales and customer review.
+
+**Status:** Completed
+
+### PM-08 — PivotTable Analysis
+
+This stage builds and checks native Excel PivotTables from the cleaned transaction data and the calculated time and shipping fields.
+
+**PivotTable worksheets:**
+
+* `Pivot_Time`: sales by order year and month number.
+* `Pivot_Product`: sales by category and sub-category.
+* `Pivot_Geography`: sales by region and state.
+* `Pivot_Segment`: sales by customer segment.
+* `Pivot_Customer`: sales by customer name and ID, sorted from highest to lowest sales.
+* `Pivot_Shipping`: sales, average shipping days, and transaction count by ship mode.
+
+These are native Excel PivotTables sharing a pivot cache sourced from the 9,800 rows in the `SalesDataTable` on the `SalesData` worksheet. They include total sales and transaction counts; the shipping PivotTable also reports average shipping duration. The cache is set to refresh when the workbook opens.
+
+**Validation notes:**
+
+* Each PivotTable uses the same 9,800 source records and reconciles to total sales of 2,261,536.78 and 9,800 transactions.
+* Technology leads category sales at 827,455.87; West leads regional sales at 710,219.68; Consumer leads segment sales at 1,148,060.53.
+* The customer PivotTable is sorted by sales, with Sean Miller (SM-20320) first at 25,043.05.
+
+**Deliverable:** [Excel workbook](excel/sales_customer_analytics_calculations.xlsx) with the source table and six native PivotTable worksheets.
 
 **Status:** Completed
