@@ -221,3 +221,11 @@ This stage presents the validated sales and customer analysis in an interactive 
 **Deliverable:** [Excel workbook](excel/sales_customer_analytics_calculations.xlsx) with the interactive sales dashboard.
 
 **Status:** Completed
+
+### PM-11 — Findings and Recommendations
+
+This stage interprets the validated analysis, distinguishes observed results from hypotheses, and summarizes practical recommendations.
+
+**Key findings:** 2018 recorded sales grew 20.3% year over year while sales per order declined 6.2%; October–December contributed 38.5% of four-year sales; all three product categories contributed at least 31.2% of total sales; the top two states contributed 33.3%; and Consumer generated the most sales while Home Office had the highest sales per order. Profitability cannot be assessed because the source does not include cost or profit data.
+
+**Status:** Completed
