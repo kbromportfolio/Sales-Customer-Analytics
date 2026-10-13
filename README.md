@@ -209,3 +209,15 @@ Average sales per customer describes this dataset period and is not customer lif
 **Deliverable:** [Excel workbook](excel/sales_customer_analytics_calculations.xlsx) with the KPI summary and PM-07 benchmark checks.
 
 **Status:** Completed
+
+### PM-10 — Dashboard Development
+
+This stage presents the validated sales and customer analysis in an interactive Excel dashboard.
+
+**Dashboard features:** `Dashboard` is the first worksheet and includes dropdown filters for year, region, and customer segment; KPI cards for selected sales, transaction rows, sales per transaction, and average shipping days; and charts for monthly sales trend, product category mix, and sales by ship mode. All cards and chart series update when the filter selections change. Supporting chart data is kept out of view.
+
+**Validation:** With the filters set to 2018, West, and Consumer, the dashboard returns sales of 105,851.00 across 516 transaction rows, average sales per transaction of 205.14, and average shipping duration of 3.77 days. The monthly, category, and shipping chart series each reconcile to the filtered sales total. The default All selections reconcile to total sales of 2,261,536.78 and 9,800 transaction rows.
+
+**Deliverable:** [Excel workbook](excel/sales_customer_analytics_calculations.xlsx) with the interactive sales dashboard.
+
+**Status:** Completed
