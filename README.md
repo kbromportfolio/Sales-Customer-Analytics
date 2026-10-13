@@ -246,3 +246,18 @@ The repository is organised with the raw and cleaned CSVs under `Data/`, project
 **Repository:** [kbromportfolio/Sales-Customer-Analytics](https://github.com/kbromportfolio/Sales-Customer-Analytics)
 
 **Status:** Published
+
+### PM-14 — Final Review
+
+The final review checked the source files, saved workbook formulas and KPI reconciliations, dashboard filters and chart inputs, and the files tracked for publication.
+
+**Final-review checklist:**
+
+* [x] Raw and cleaned CSVs each contain 9,800 records and 18 fields and match row-for-row. `Row ID` is unique; sales are non-negative; order and ship dates parse successfully with no ship date before its order date. The 11 missing postal codes remain documented.
+* [x] Workbook formula results contain no saved Excel error values. All five KPI benchmark checks on `KPI_Summary` pass: total sales, transaction rows, distinct orders, distinct customers, and 2018 sales growth.
+* [x] Independently recalculated source KPIs reconcile to $2,261,536.78 in sales, 9,800 transaction rows, 4,922 orders, and 793 customers.
+* [x] Dashboard default filters reconcile to total sales and all 9,800 rows. For 2018 / West / Consumer, independent source calculations return $105,851.00 across 516 rows, $205.14 sales per row, and 3.77 average shipping days.
+* [x] The dashboard has validated dropdowns for year, region, and segment and three charts. For the filtered scenario, monthly, category, and ship-mode chart inputs each reconcile to $105,851.00.
+* [x] The published file set contains the raw and cleaned CSVs, proposal documents, README, and analysis workbook. The duplicate CSV, Office lock file, and local Python environment are not included.
+
+**Status:** Complete. The source provider and licence remain undocumented, as noted in the dataset limitations.
