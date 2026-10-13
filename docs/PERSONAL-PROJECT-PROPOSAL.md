@@ -1,5 +1,7 @@
 # Personal Project Proposal
 
+**Project status:** Analysis and documentation completed. The upstream dataset provider, source URL, and licence are not documented in the repository and remain unverified.
+
 ## 1. Project Title
 Sales & Customer Analytics
 
@@ -27,15 +29,15 @@ Sales-Customer-Analytics
 The aim of this personal project is to analyse retail sales and customer data to uncover business insights, support evidence-based decisions, and demonstrate strong analytical thinking using Microsoft Excel. The project will translate raw transaction data into meaningful trends, customer patterns, and operational findings suitable for portfolio presentation.
 
 ## 9. Project Objectives
-The project will:
+The project was designed to:
 - explore and understand the structure of the sales dataset;
 - preserve the raw source data before any cleaning or transformation;
 - identify data quality issues such as missing values, duplicates, and inconsistent formats;
-- clean and validate the dataset to ensure reliable analysis;
+- validate the dataset and document any issues that cannot be corrected from the available source;
 - build necessary calculations, metrics, and summary logic in Excel;
 - analyse sales by time, geography, product, customer segment, and category;
 - create PivotTables and dashboard visuals to communicate insights clearly;
-- produce actionable recommendations based on evidence from the data;
+- summarize evidence-based findings and recommendations in the README;
 - document the analysis process and findings for review and portfolio use.
 
 ## 10. Dataset Description
@@ -58,12 +60,12 @@ Many organisations need to understand not only their total sales performance but
 ### 12.1 In Scope
 - raw data review and preservation;
 - data profiling and quality assessment;
-- data cleaning and validation;
+- data-quality assessment, validation, and transparent handling of unresolved issues;
 - formula and KPI development in Excel;
 - sales analysis by date, region, category, product, and customer segment;
 - customer analysis by segment, geography, and purchasing patterns;
 - PivotTable analysis and dashboard creation;
-- summarised findings and recommendations;
+- findings and recommendations summarized in the README (no separate insights report);
 - repository documentation for final presentation.
 
 ### 12.2 Out of Scope
@@ -78,7 +80,7 @@ The project will follow a structured analytical workflow:
 1. Dataset acquisition and source confirmation.
 2. Raw data preservation and documentation.
 3. Data profiling to understand structure, completeness, and quality.
-4. Data cleaning and validation of key fields.
+4. Validation of key fields, including day-first parsing of the dates in the workbook, and transparent retention of unresolved missing values.
 5. Development of calculated columns and performance measures.
 6. Exploratory data analysis and sales/customer segment review.
 7. PivotTable summaries and key business checks.
@@ -88,13 +90,14 @@ The project will follow a structured analytical workflow:
 
 ## 14. Expected Deliverables
 The project will produce the following outputs:
-- cleaned and validated dataset;
-- data profiling report;
+- preserved raw data and analysis input CSV, with the unchanged CSV contents and limitations documented;
+- data quality and profiling report;
+- analytical methods documentation;
 - calculations and formula workbook;
 - sales and customer analysis worksheets;
 - PivotTable summaries;
-- KPI dashboard;
-- recommendations report;
+- interactive KPI dashboard;
+- evidence-based findings and recommendations summarized in the README;
 - project documentation and GitHub repository files.
 
 ## 15. Expected Results
@@ -108,8 +111,8 @@ The expected outcome is a portfolio-quality Excel analytics project that demonst
 
 ## 16. Success Criteria
 The project will be considered successful when:
-- the raw dataset is preserved and documented;
-- data quality issues have been identified and corrected;
+- the raw dataset is preserved and the available source-provenance limitation is documented;
+- data quality issues have been identified and corrected where possible, or transparently retained and documented where source evidence is insufficient;
 - the analysis is structured, traceable, and reproducible;
 - key sales and customer insights are clearly identified;
 - dashboard visuals and summary metrics are accurate and meaningful;
@@ -119,4 +122,4 @@ The project will be considered successful when:
 This project is important because it combines technical analysis with business interpretation. It allows the project author to demonstrate practical analytics capabilities in a realistic business setting while building a portfolio piece that highlights problem-solving, data quality discipline, and effective communication of findings.
 
 ## 18. Conclusion
-This personal project will create a complete sales and customer analytics case study using Microsoft Excel and supporting GitHub workflows. By combining strong data preparation, analytical reasoning, and business-focused reporting, the project will provide a clear demonstration of the skills needed for a Data Analyst role.
+This personal project created a sales and customer analytics case study using Microsoft Excel and supporting GitHub workflows. The analysis and documentation are complete; the upstream dataset provider and licence remain unverified, and this limitation is disclosed in the README and data quality report.

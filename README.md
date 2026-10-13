@@ -1,6 +1,6 @@
 # Sales & Customer Analytics
 
-**Project Status:** In Progress
+**Project Status:** Analysis and documentation completed; upstream dataset provenance and licence remain unverified.
 
 **Primary Tool:** Microsoft Excel
 
@@ -10,7 +10,7 @@
 
 **Analysis Type:** Sales performance, customer segmentation, product analytics, and regional trend analysis
 
-This project evaluates sales performance and customer behaviour using a retail transaction dataset. The objective is to clean and validate the source data, structure Excel-based analysis, and produce a clear overview of revenue drivers, customer patterns, and business trends that can be communicated through summary reporting and dashboard visuals.
+This project evaluates sales performance and customer behaviour using a retail transaction dataset. The objective is to assess and validate the source data, structure Excel-based analysis, and produce a clear overview of revenue drivers, customer patterns, and business trends that can be communicated through summary reporting and dashboard visuals.
 
 ## Project Overview
 
@@ -51,8 +51,11 @@ The project uses the dataset in `Data/Raw/train.csv`.
 ### Important Data Notes
 
 * The raw source file is preserved before any cleaning or transformation.
-* Data quality checks are performed before analysis begins.
-* Results should be interpreted within the context of the available dataset and business assumptions.
+* The cleaned CSV currently matches the raw CSV field-for-field; no source rows or field values were changed. The workbook parses the `DD/MM/YYYY` dates as day-first Excel dates and adds derived fields.
+* Eleven missing postal codes are retained because their values cannot be confirmed from the available files.
+* No exact duplicate rows were found, and all dates parse with no ship date preceding its order date. Sales values are numeric and non-negative.
+* The repository does not record the dataset's upstream provider, source URL, or licence; provenance and reuse permissions remain unverified.
+* The source has no quantity, discount, cost, profit, promised delivery date, or delivery confirmation fields. Profitability, unit demand, discount impact, and delivery compliance cannot be assessed.
 
 ## Repository Structure
 
@@ -66,16 +69,9 @@ Sales-Customer-Analytics/
 │       └── train_cleaned.csv
 │
 ├── docs/
-│   ├── PERSONAL PROJECT PROPOSAL.odt
 │   ├── PERSONAL-PROJECT-PROPOSAL.md
+│   ├── PERSONAL PROJECT PROPOSAL.odt (pre-existing office-format copy)
 │   ├── PROJECT MANAGEMENT TRACKER.odt
-│   └── ~$OJECT MANAGEMENT TRACKER.odt
-│
-├── reports/
-│   └── (analysis outputs to be created)
-│
-├── Images/
-│   └── (visual outputs to be created)
 │
 ├── excel/
 │   └── sales_customer_analytics_calculations.xlsx
@@ -98,25 +94,25 @@ This stage defines the project aim, objectives, scope, and analytical approach. 
 
 ### PM-02 — Dataset Preparation
 
-This stage confirms the dataset source, reviews its fields and date formats, checks the applicable licence or usage conditions, and preserves the original raw data without modification.
+This stage reviews the available dataset files and preserves the raw data without modification. The repository does not identify the upstream provider, source URL, or applicable licence, so provenance and usage conditions could not be independently confirmed; this limitation is noted above.
 
-**Deliverable:** Source record and preserved [raw dataset](Data/Raw/train.csv).
+**Deliverable:** Preserved [raw dataset](Data/Raw/train.csv); the source-provenance limitation is summarized above.
 
-**Status:** Completed
+**Status:** Completed with provenance limitation noted
 
 ### PM-03 — Data Profiling
 
 This stage inspects the dataset's columns, data types, missing values, duplicates, value ranges, and key identifiers to identify quality issues that may affect the analysis.
 
-**Deliverable:** Data profiling report.
+**Findings:** The source and analysis-input CSVs each have 9,800 records and 18 fields. There are no exact duplicate rows; required identifiers are populated and `Row ID` is unique. The only missing values are 11 blank postal codes, retained without imputation. Sales is numeric and non-negative. Both date fields parse as day-first `DD/MM/YYYY`, and no ship date precedes its order date.
 
 **Status:** Completed
 
 ### PM-04 — Data Cleaning
 
-This stage applies the verified date-format correction to the two date columns, converting them to ISO `YYYY-MM-DD` format. No exact duplicate rows were found, and no records were removed. The 11 missing `Postal Code` values are retained because their values cannot be confirmed from the source data.
+No exact duplicate rows were found and no records were removed. The cleaned CSV is currently field-for-field identical to the raw CSV, including its `DD/MM/YYYY` date strings. The workbook parses both date columns as day-first dates and stores them as Excel dates for analysis. The 11 missing `Postal Code` values are retained because their values cannot be confirmed from the source data.
 
-**Deliverable:** [Cleaned dataset](Data/Cleaned/train_cleaned.csv).
+**Deliverable:** [Analysis input CSV](Data/Cleaned/train_cleaned.csv). It currently matches the raw CSV field-for-field; dates are interpreted as day-first dates in the workbook, where derived analysis fields are added.
 
 **Status:** Completed
 
@@ -127,7 +123,7 @@ This stage verifies date formats and order, required identifiers, sales values, 
 **Validation notes:**
 
 * 9,800 records and 18 fields match the raw source.
-* All cleaned date values parse successfully as ISO `YYYY-MM-DD`, and no ship date precedes the order date.
+* All order and ship date values parse successfully as day-first `DD/MM/YYYY` dates, and no ship date precedes the order date.
 * All `Row ID`, `Order ID`, `Customer ID`, and `Product ID` values are populated, and all `Row ID` values are unique.
 * All sales values are numeric and non-negative, ranging from 0.444 to 22,638.48.
 * The 11 missing `Postal Code` values remain blank because they were not confirmed in the source data.
@@ -136,15 +132,17 @@ This stage verifies date formats and order, required identifiers, sales values, 
 
 ### PM-06 — Formula Development
 
-This stage creates the required analytical calculations that support the project questions and downstream reporting. It adds derived fields such as year and month, shipping duration, and other business measures needed for the analysis workbook using the cleaned dataset as the source.
+This stage creates the required analytical calculations that support the project questions and downstream reporting. The `Calculations` and `SalesData` worksheets hold the parsed dates, derived year and month fields, shipping duration, and source sales values used by downstream summaries.
 
-**Deliverable:** [Excel calculations workbook](excel/sales_customer_analytics_calculations.xlsx) with a worksheet containing the required formula logic for time-based and sales-based analysis.
+**Method:** The workbook parses dates as day-first Excel dates, derives order year/month and calendar shipping duration, and uses sales sums for revenue summaries. Transaction counts are source-row counts; order counts use distinct Order IDs. KPIs, PivotTables, and dashboard summaries are built from the workbook's `SalesDataTable`.
+
+**Deliverable:** [Excel calculations workbook](excel/sales_customer_analytics_calculations.xlsx) with the calculation logic and source data.
 
 **Status:** Completed
 
 ### PM-07 — Sales and Customer Analysis
 
-This stage analyses sales by time, product, geography, segment, and customer using the validated and cleaned dataset together with the calculation sheet. The focus is to identify revenue patterns, category performance, regional differences, and the highest-value customer groups.
+This stage analyses sales by time, product, geography, segment, and customer using the validated transaction data and calculation sheet. The focus is to identify revenue patterns, category performance, regional differences, and the highest-value customer groups.
 
 **Analysis worksheets in the Excel workbook:**
 
@@ -154,7 +152,7 @@ This stage analyses sales by time, product, geography, segment, and customer usi
 * `Analysis_Geography`: regional and state sales.
 * `Analysis_Segment`: sales by customer segment.
 * `Analysis_Customer`: the top 20 and full customer ranking, with sales, sales share, transaction count, and distinct order count.
-* `SalesData`: the 9,800 cleaned transaction rows and derived year, month, and shipping-day fields.
+* `SalesData`: the 9,800 source transaction rows and derived year, month, and shipping-day fields.
 
 **Summary findings:**
 
@@ -167,13 +165,15 @@ This stage analyses sales by time, product, geography, segment, and customer usi
 
 The cleaned CSV stores dates as `DD/MM/YYYY`; the workbook parses them as day-first dates and stores them as Excel dates before grouping by year and month. Transaction counts are source-row counts, not order counts. The source does not contain profit, discount, or quantity fields.
 
+Average order value is total sales divided by distinct orders. Repeat customers have at least two distinct orders during this dataset period; this is not a retention or churn measure. Sales per customer is not customer lifetime value, and shipping duration is not delivery compliance. Results are descriptive of the provided data, not causal or forecast conclusions.
+
 **Deliverable:** [Excel workbook](excel/sales_customer_analytics_calculations.xlsx) with the calculations, source data, analysis worksheets, and summary tables for sales and customer review.
 
 **Status:** Completed
 
 ### PM-08 — PivotTable Analysis
 
-This stage builds and checks native Excel PivotTables from the cleaned transaction data and the calculated time and shipping fields.
+This stage builds and checks native Excel PivotTables from the transaction data and calculated time and shipping fields in `SalesDataTable`.
 
 **PivotTable worksheets:**
 
@@ -229,3 +229,11 @@ This stage interprets the validated analysis, distinguishes observed results fro
 **Key findings:** 2018 recorded sales grew 20.3% year over year while sales per order declined 6.2%; October–December contributed 38.5% of four-year sales; all three product categories contributed at least 31.2% of total sales; the top two states contributed 33.3%; and Consumer generated the most sales while Home Office had the highest sales per order. Profitability cannot be assessed because the source does not include cost or profit data.
 
 **Status:** Completed
+
+### PM-12 — Documentation
+
+This stage finalises the project proposal and brings the key data-quality findings, analysis methods, interpretation limits, and PM-11 insights together in this README. Separate methods, data-quality, and insights reports are not maintained.
+
+**Deliverables:** Updated [project proposal](docs/PERSONAL-PROJECT-PROPOSAL.md) and this README.
+
+**Status:** Completed. The dataset's original source and licence could not be verified from the available project files.
