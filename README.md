@@ -1,6 +1,6 @@
 # Sales & Customer Analytics
 
-**Project Status:** Analysis and documentation completed; upstream dataset provenance and licence remain unverified.
+**Project Status:** Analysis and documentation completed; public release is available on GitHub. The upstream dataset provider, source URL, and licence remain undocumented.
 
 **Primary Tool:** Microsoft Excel
 
@@ -54,7 +54,7 @@ The project uses the dataset in `Data/Raw/train.csv`.
 * The cleaned CSV currently matches the raw CSV field-for-field; no source rows or field values were changed. The workbook parses the `DD/MM/YYYY` dates as day-first Excel dates and adds derived fields.
 * Eleven missing postal codes are retained because their values cannot be confirmed from the available files.
 * No exact duplicate rows were found, and all dates parse with no ship date preceding its order date. Sales values are numeric and non-negative.
-* The repository does not record the dataset's upstream provider, source URL, or licence; provenance and reuse permissions remain unverified.
+* The project owner confirmed permission to publish the supplied dataset and workbook. Their upstream provider, source URL, and licence remain undocumented.
 * The source has no quantity, discount, cost, profit, promised delivery date, or delivery confirmation fields. Profitability, unit demand, discount impact, and delivery compliance cannot be assessed.
 
 ## Repository Structure
@@ -76,6 +76,7 @@ Sales-Customer-Analytics/
 ├── excel/
 │   └── sales_customer_analytics_calculations.xlsx
 │
+├── .gitignore
 ├── README.md
 └── .git
 ```
@@ -237,3 +238,11 @@ This stage finalises the project proposal and brings the key data-quality findin
 **Deliverables:** Updated [project proposal](docs/PERSONAL-PROJECT-PROPOSAL.md) and this README.
 
 **Status:** Completed. The dataset's original source and licence could not be verified from the available project files.
+
+### PM-13 — GitHub Publication
+
+The repository is organised with the raw and cleaned CSVs under `Data/`, project documentation under `docs/`, and the analysis workbook under `excel/`. Uncommitted tracker edits were kept local, and Office lock files are ignored rather than published.
+
+**Repository:** [kbromportfolio/Sales-Customer-Analytics](https://github.com/kbromportfolio/Sales-Customer-Analytics)
+
+**Status:** Published
