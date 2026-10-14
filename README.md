@@ -237,6 +237,10 @@ This stage finalises the project proposal and brings the key data-quality findin
 
 **Deliverables:** Updated [project proposal](docs/PERSONAL-PROJECT-PROPOSAL.md) and this README.
 
+**Project significance:** This project demonstrates practical data-quality, sales and customer analysis, KPI development, and insight-communication skills using Microsoft Excel and supporting GitHub workflows.
+
+**Conclusion:** The sales and customer analytics case study and its documentation are complete. Findings are descriptive, profitability cannot be assessed without cost or profit data, and the dataset provider and licence remain unverified.
+
 **Status:** Completed. The dataset's original source and licence could not be verified from the available project files.
 
 ### PM-13 — GitHub Publication
