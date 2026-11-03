@@ -76,7 +76,16 @@ Sales-Customer-Analytics/
 ├── excel/
 │   └── sales_customer_analytics_calculations.xlsx
 │
-├── .gitignore
+├── reports/
+│   ├── category_sales.png
+│   ├── charts.png
+│   ├── dashboard.png
+│   ├── executive_summary.png
+│   ├── monthly_sales_trend.png
+│   ├── pivot_analysis.png
+│   ├── region_sales.png
+│   └── ship_mode_sales.png
+│
 ├── README.md
 └── .git
 ```
